@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-button-toggle-group value="Login">
+      <mat-button-toggle value="Login" (change)="changeSlider(1)">
+        Login
+      </mat-button-toggle>
+      <mat-button-toggle value="Register" (change)="changeSlider(2)">
+        Register
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="slider === 1" class="signInForm">
+      <mat-form-field>
+        <mat-label>E-mail Address</mat-label>
+        <input matInput value="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput value="" />
+      </mat-form-field>
+    </form>
+    <form *ngIf="slider === 2" class="registerForm">
+      <mat-form-field>
+        <mat-label>E-mail Address</mat-label>
+        <input matInput value="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput value="" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Repeat Password</mat-label>
+        <input matInput value="" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>

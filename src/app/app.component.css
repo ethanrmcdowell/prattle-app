@@ -1,0 +1,13 @@
+mat-card {
+    width:  60%;
+    height: 60%;
+    margin: 75px auto;
+}
+
+.signInForm .registerForm {
+    width: 200px;
+}
+
+.slideText {
+    color: white;
+}
