@@ -11,3 +11,8 @@ mat-card {
 .slideText {
     color: white;
 }
+
+.errorMsg {
+    color: white;
+    margin-left: 20px;
+}

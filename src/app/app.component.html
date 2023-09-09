@@ -34,5 +34,9 @@
         <input matInput value="" />
       </mat-form-field>
     </form>
+    <button (click)="registerUser()">Submit</button>
   </mat-card-content>
+  <mat-card-footer>
+    <h3 *ngIf="error" class="errorMsg">{{ errorMsg }}</h3>
+  </mat-card-footer>
 </mat-card>

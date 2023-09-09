@@ -12,6 +12,8 @@ import {FormsModule} from '@angular/forms';
 
 import * as firebase from 'firebase/app';
 
+import { getAuth } from 'firebase/auth';
+
 import { environment } from '../environments/environments';
 
 // import {  } from '';
