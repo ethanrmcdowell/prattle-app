@@ -13,25 +13,45 @@
     <form *ngIf="slider === 1" class="signInForm">
       <mat-form-field>
         <mat-label>E-mail Address</mat-label>
-        <input matInput value="" />
+        <input
+          [(ngModel)]="userEmail"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput value="" />
+        <input
+          [(ngModel)]="userPass"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
     </form>
     <form *ngIf="slider === 2" class="registerForm">
       <mat-form-field>
         <mat-label>E-mail Address</mat-label>
-        <input matInput value="" />
+        <input
+          [(ngModel)]="userEmail"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput value="" />
+        <input
+          [(ngModel)]="userPass"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Repeat Password</mat-label>
-        <input matInput value="" />
+        <input
+          [(ngModel)]="userPass2"
+          matInput
+          [ngModelOptions]="{ standalone: true }"
+        />
       </mat-form-field>
     </form>
     <button (click)="registerUser()">Submit</button>

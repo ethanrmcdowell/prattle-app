@@ -13,12 +13,19 @@ export class AppComponent {
   errorMsg = '';
   userEmail = '';
   userPass = '';
+  userPass2 = '';
 
   changeSlider(num: number) {
     this.slider = num;
   }
 
   registerUser() {
+    // console.log("EMAIL ->", this.userEmail);
+    // console.log("PW ->", this.userPass);
+    // console.log("PW2 ->", this.userPass2);
+    // return;
+
+
     const auth = getAuth();
     const email = 'ethan.r.mcdowell@gmail.com';
     const pass = 'Hotchkiss89!';
