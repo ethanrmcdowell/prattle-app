@@ -4,6 +4,11 @@ mat-card {
     margin: 75px auto;
 }
 
+button {
+    display: grid;
+    margin-left: 20px;
+}
+
 .signInForm .registerForm {
     width: 200px;
 }

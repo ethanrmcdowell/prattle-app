@@ -6,9 +6,10 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 import * as firebase from 'firebase/app';
 
@@ -31,6 +32,7 @@ firebase.initializeApp(environment.firebase);
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
   ],
   providers: [
     provideAnimations()

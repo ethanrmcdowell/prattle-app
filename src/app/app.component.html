@@ -27,6 +27,7 @@
           [ngModelOptions]="{ standalone: true }"
         />
       </mat-form-field>
+      <button mat-raised-button (click)="loginUser()">Submit</button>
     </form>
     <form *ngIf="slider === 2" class="registerForm">
       <mat-form-field>
@@ -53,8 +54,8 @@
           [ngModelOptions]="{ standalone: true }"
         />
       </mat-form-field>
+      <button mat-raised-button (click)="registerUser()">Submit</button>
     </form>
-    <button (click)="registerUser()">Submit</button>
   </mat-card-content>
   <mat-card-footer>
     <h3 *ngIf="error" class="errorMsg">{{ errorMsg }}</h3>

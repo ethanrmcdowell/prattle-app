@@ -20,7 +20,11 @@ export class AppComponent {
   }
 
   registerUser() {
-    if (this.userPass !== this.userPass2) {
+    const emailRegex = /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/;
+    if (!emailRegex.test(this.userEmail)) {
+      console.log("INVALID EMAIL!");
+      this.handleErrors('auth/invalid-email');
+    } else if (this.userPass !== this.userPass2) {
       console.log("MIS-MATCHED PASSWORD!");
       this.handleErrors('auth/passwords-no-match');
       return;
@@ -38,6 +42,10 @@ export class AppComponent {
     }
   }
 
+  loginUser() {
+    console.log("Logging in...");
+  }
+
   handleErrors(errorCode: string) {
     if (errorCode === 'auth/email-already-in-use') {
       this.error = true;
@@ -45,6 +53,9 @@ export class AppComponent {
     } else if (errorCode === 'auth/passwords-no-match') {
       this.error = true;
       this.errorMsg = "Passwords do not match."
+    } else if (errorCode === 'auth/invalid-email') {
+      this.error = true;
+      this.errorMsg = "E-mail address is invalid.";
     }
 
 
