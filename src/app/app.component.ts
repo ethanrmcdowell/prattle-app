@@ -20,31 +20,34 @@ export class AppComponent {
   }
 
   registerUser() {
-    // console.log("EMAIL ->", this.userEmail);
-    // console.log("PW ->", this.userPass);
-    // console.log("PW2 ->", this.userPass2);
-    // return;
-
-
-    const auth = getAuth();
-    const email = 'ethan.r.mcdowell@gmail.com';
-    const pass = 'Hotchkiss89!';
-    createUserWithEmailAndPassword(auth, email, pass)
-    .then((userCredential) => {
-      console.log("Registered!");
-      console.log(userCredential);
-    })
-    .catch((error) => {
-      console.log("ERROR ->", error.message);
-      this.handleErrors(error.code);
-    })
+    if (this.userPass !== this.userPass2) {
+      console.log("MIS-MATCHED PASSWORD!");
+      this.handleErrors('auth/passwords-no-match');
+      return;
+    } else {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, this.userEmail, this.userPass)
+      .then((userCredential) => {
+        console.log("Registered!");
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log("ERROR ->", error.message);
+        this.handleErrors(error.code);
+      })
+    }
   }
 
   handleErrors(errorCode: string) {
     if (errorCode === 'auth/email-already-in-use') {
       this.error = true;
       this.errorMsg = "E-mail address already in use!";
+    } else if (errorCode === 'auth/passwords-no-match') {
+      this.error = true;
+      this.errorMsg = "Passwords do not match."
     }
+
+
     setTimeout(() => {
       this.error = false;
       this.errorMsg = '';
