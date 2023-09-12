@@ -58,6 +58,17 @@
     </form>
   </mat-card-content>
   <mat-card-footer>
-    <h3 *ngIf="error" class="errorMsg">{{ errorMsg }}</h3>
+    <div *ngIf="error" class="errorDiv">
+      <h3 class="errorMsg">{{ errorMsg }}</h3>
+    </div>
+  </mat-card-footer>
+</mat-card>
+
+<mat-card *ngIf="userAuthenticated">
+  <div class="loggedInDiv">
+    <h3 class="loggedInText">Welcome!</h3>
+  </div>
+  <mat-card-footer>
+    <button mat-raised-button (click)="signOutUser()">Log Out</button>
   </mat-card-footer>
 </mat-card>

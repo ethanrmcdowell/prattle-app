@@ -29,6 +29,7 @@ export class AppComponent {
       if (response.success) {
         console.log("SUCCESS!!");
         console.log(response);
+        this.userAuthenticated = true;
       } else {
         console.log("FAILURE!");
         console.log(response);
@@ -38,18 +39,30 @@ export class AppComponent {
   }
 
   loginUser() {
-    console.log("Logging in...");
-
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, this.userEmail, this.userPass)
-    .then((userCredentials) => {
-      console.log("Logged in!");
-      console.log(userCredentials);
-      this.userAuthenticated = true;
+    this.authService.loginUser(this.userEmail, this.userPass, (response) => {
+      if (response.success) {
+        console.log("SUCCESS!!");
+        console.log(response);
+        this.userAuthenticated = true;
+      } else {
+        console.log("FAILURE!");
+        console.log(response);
+        this.handleErrors(response.message);
+      }
     })
-    .catch((error) => {
-       console.log("ERROR ->", error.code);
-       this.handleErrors(error.code);
+  }
+
+  signOutUser() {
+    this.authService.logOutUser((response) => {
+      if (response.success) {
+        console.log("SIGNED OUT!!");
+        console.log(response);
+        this.userAuthenticated = false;
+      } else {
+        console.log("FAILURE!");
+        console.log(response);
+        this.handleErrors(response.message);
+      }
     })
   }
 

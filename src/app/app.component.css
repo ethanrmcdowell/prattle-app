@@ -9,7 +9,13 @@ button {
     margin-left: 20px;
 }
 
+input {
+    flex-grow: 1;
+}
+
 .signInForm .registerForm {
+    display: flex;
+    flex-direction: column;
     width: 200px;
 }
 
@@ -17,7 +23,14 @@ button {
     color: white;
 }
 
+.errorDiv {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
 .errorMsg {
     color: white;
-    margin-left: 20px;
 }
