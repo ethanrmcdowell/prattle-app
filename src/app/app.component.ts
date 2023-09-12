@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,8 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private authService: AuthService) {}
+
   title = 'prattle-app';
   slider = 1;
   error = false;
@@ -14,48 +18,55 @@ export class AppComponent {
   userEmail = '';
   userPass = '';
   userPass2 = '';
+  userAuthenticated = false;
 
   changeSlider(num: number) {
     this.slider = num;
   }
 
   registerUser() {
-    const emailRegex = /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/;
-    if (!emailRegex.test(this.userEmail)) {
-      console.log("INVALID EMAIL!");
-      this.handleErrors('auth/invalid-email');
-    } else if (this.userPass !== this.userPass2) {
-      console.log("MIS-MATCHED PASSWORD!");
-      this.handleErrors('auth/passwords-no-match');
-      return;
-    } else {
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, this.userEmail, this.userPass)
-      .then((userCredential) => {
-        console.log("Registered!");
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log("ERROR ->", error.message);
-        this.handleErrors(error.code);
-      })
-    }
+    this.authService.registerUser(this.userEmail, this.userPass, (response) => {
+      if (response.success) {
+        console.log("SUCCESS!!");
+        console.log(response);
+      } else {
+        console.log("FAILURE!");
+        console.log(response);
+        this.handleErrors(response.message);
+      }
+    })
   }
 
   loginUser() {
     console.log("Logging in...");
+
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, this.userEmail, this.userPass)
+    .then((userCredentials) => {
+      console.log("Logged in!");
+      console.log(userCredentials);
+      this.userAuthenticated = true;
+    })
+    .catch((error) => {
+       console.log("ERROR ->", error.code);
+       this.handleErrors(error.code);
+    })
   }
 
   handleErrors(errorCode: string) {
+    this.error = true;
     if (errorCode === 'auth/email-already-in-use') {
-      this.error = true;
       this.errorMsg = "E-mail address already in use!";
     } else if (errorCode === 'auth/passwords-no-match') {
-      this.error = true;
       this.errorMsg = "Passwords do not match."
     } else if (errorCode === 'auth/invalid-email') {
-      this.error = true;
       this.errorMsg = "E-mail address is invalid.";
+    } else if (errorCode === 'auth/user-not-found') {
+      this.errorMsg = "User not found."
+    } else if (errorCode === 'auth/weak-password') {
+      this.errorMsg = "Please use a stronger password."
+    } else {
+      this.errorMsg = "Unspecified error.";
     }
 
 

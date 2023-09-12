@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!userAuthenticated">
   <mat-card-header>
     <mat-button-toggle-group value="Login">
       <mat-button-toggle value="Login" (change)="changeSlider(1)">
