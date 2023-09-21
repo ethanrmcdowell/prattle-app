@@ -19,7 +19,7 @@ input {
     width: 200px;
 }
 
-.slideText {
+.slideText .loggedInText {
     color: white;
 }
 

@@ -16,6 +16,7 @@ import * as firebase from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 import { environment } from '../environments/environments';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
 // import {  } from '';
 
@@ -33,6 +34,7 @@ firebase.initializeApp(environment.firebase);
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [
     provideAnimations()
