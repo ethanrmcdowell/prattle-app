@@ -1,0 +1,47 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headerText {
+    color: white;
+}
+
+mat-card {
+    width:  60%;
+    height: 60%;
+    margin: 25px auto;
+}
+
+button {
+    display: grid;
+    margin-left: 20px;
+}
+
+mat-form-field {
+    width: 60%;
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+.footerContainer {
+    display: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.footerButtons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.footerButtons button {
+    float: right;
+}

@@ -33,12 +33,9 @@ export class AppComponent implements OnInit {
   registerUser() {
     this.authService.registerUser(this.userEmail, this.userPass, (response) => {
       if (response.success) {
-        console.log("SUCCESS!!");
-        console.log(response);
-        this.userAuthenticated = true;
+        console.log("SUCCESS:", response);
       } else {
-        console.log("FAILURE!");
-        console.log(response);
+        console.log("FAILURE:", response);
         this.handleErrors(response.message);
       }
     })
@@ -47,12 +44,9 @@ export class AppComponent implements OnInit {
   loginUser() {
     this.authService.loginUser(this.userEmail, this.userPass, (response) => {
       if (response.success) {
-        console.log("SUCCESS!!");
-        console.log(response);
-        this.userAuthenticated = true;
+        console.log("SUCCESS:", response);
       } else {
-        console.log("FAILURE!");
-        console.log(response);
+        console.log("FAILURE:", response);
         this.handleErrors(response.message);
       }
     })
@@ -61,12 +55,9 @@ export class AppComponent implements OnInit {
   signOutUser() {
     this.authService.logOutUser((response) => {
       if (response.success) {
-        console.log("SIGNED OUT!!");
-        console.log(response);
-        this.userAuthenticated = false;
+        console.log("SUCCESS:", response);
       } else {
-        console.log("FAILURE!");
-        console.log(response);
+        console.log("FAILURE:", response);
         this.handleErrors(response.message);
       }
     })

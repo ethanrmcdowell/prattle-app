@@ -8,6 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
     auth = getAuth();
+    userEmail: any;
+
     private userAuthenticatedSubject = new BehaviorSubject<boolean>(false);
     userAuthenticated$ = this.userAuthenticatedSubject.asObservable();
 
@@ -15,6 +17,7 @@ export class AuthService {
         signInWithEmailAndPassword(this.auth, email, password)
         .then((userCredential) => {
             this.userAuthenticatedSubject.next(true);
+            this.userEmail = userCredential.user.email;
             callback({  success: true, message: userCredential })
         })
         .catch((error) => {

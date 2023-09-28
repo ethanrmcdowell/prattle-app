@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "prattle-3d614"
+  },
+  "targets": {
+    "prattle-3d614": {
+      "hosting": {
+        "prattle-app": [
+          "prattle-3d614"
+        ]
+      }
+    }
   }
 }

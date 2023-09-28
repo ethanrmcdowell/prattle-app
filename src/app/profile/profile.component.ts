@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -8,17 +9,5 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(private authService: AuthService) {}
-
-  signOutUser() {
-    this.authService.logOutUser((response) => {
-      if (response.success) {
-        console.log("SIGNED OUT!!");
-        console.log(response);
-      } else {
-        console.log("FAILURE!");
-        console.log(response);
-      }
-    })
-  }
+  
 }

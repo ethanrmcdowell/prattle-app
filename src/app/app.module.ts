@@ -8,19 +8,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
 import * as firebase from 'firebase/app';
-
-import { getAuth } from 'firebase/auth';
 
 import { environment } from '../environments/environments';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-
-// import {  } from '';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 firebase.initializeApp(environment.firebase);
 
@@ -35,10 +32,12 @@ firebase.initializeApp(environment.firebase);
     MatCardModule,
     MatButtonToggleModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase))
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [
     provideAnimations()

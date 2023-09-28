@@ -1,12 +1,21 @@
 mat-card {
     width:  60%;
     height: 60%;
-    margin: 75px auto;
+    margin: 25px auto;
+}
+
+mat-card-header {
+    margin: 10px auto;
+}
+
+mat-card-content {
+    margin: 10px auto;
 }
 
 button {
-    display: grid;
-    margin-left: 20px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
 }
 
 input {
@@ -49,4 +58,13 @@ input {
     position: absolute;
     bottom: 20px;
     right: 20px;
+}
+
+.prattleLogo {
+    display: block;
+    margin: 25px auto;
+}
+
+.logoContainer {
+    text-align: center;
 }

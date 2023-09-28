@@ -1,1 +1,64 @@
-<p>settings works!</p>
+<mat-card>
+  <mat-card-header>
+    <h3 class="headerText">
+      Welcome, {{ userEmail }}! Please update your information:
+    </h3>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="saveProfile()"
+      class="formContainer"
+    >
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="displayName"
+          placeholder="Display Name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="firstName"
+          placeholder="First Name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="lastName"
+          placeholder="Last Name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="phone"
+          placeholder="Telephone Number"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="address"
+          placeholder="Address"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-footer>
+    <div class="buttonParent">
+      <div class="footerButtons">
+        <button mat-button (click)="signOutUser()">Log Out</button>
+        <button mat-button>Submit</button>
+      </div>
+    </div>
+  </mat-card-footer>
+</mat-card>
