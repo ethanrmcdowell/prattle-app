@@ -17,6 +17,8 @@ import { getAuth } from 'firebase/auth';
 
 import { environment } from '../environments/environments';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 // import {  } from '';
 
@@ -24,7 +26,9 @@ firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

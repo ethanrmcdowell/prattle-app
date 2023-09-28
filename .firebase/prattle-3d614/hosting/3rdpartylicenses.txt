@@ -32,6 +32,9 @@ MIT
 @angular/core
 MIT
 
+@angular/fire
+MIT
+
 @angular/forms
 MIT
 
@@ -63,6 +66,9 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
+@firebase/analytics
+Apache-2.0
+
 @firebase/app
 Apache-2.0
 
@@ -72,15 +78,30 @@ Apache-2.0
 @firebase/component
 Apache-2.0
 
+@firebase/installations
+Apache-2.0
+
 @firebase/logger
+Apache-2.0
+
+@firebase/messaging
+Apache-2.0
+
+@firebase/remote-config
 Apache-2.0
 
 @firebase/util
 Apache-2.0
 
+firebase/analytics
+
 firebase/app
 
 firebase/auth
+
+firebase/messaging
+
+firebase/remote-config
 
 idb
 ISC

@@ -19,7 +19,7 @@ input {
     width: 200px;
 }
 
-.slideText .loggedInText {
+.slideText {
     color: white;
 }
 
@@ -33,4 +33,20 @@ input {
 
 .errorMsg {
     color: white;
+}
+
+.loggedInText {
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.loggedInDiv {
+    text-align: center;
+}
+
+.logOutButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }

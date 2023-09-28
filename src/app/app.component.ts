@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 import { AuthService } from './auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   title = 'prattle-app';
@@ -19,6 +19,12 @@ export class AppComponent {
   userPass = '';
   userPass2 = '';
   userAuthenticated = false;
+
+  ngOnInit() {
+    this.authService.userAuthenticated$.subscribe(isAuthenticated => {
+      this.userAuthenticated = isAuthenticated;
+    })
+  }
 
   changeSlider(num: number) {
     this.slider = num;
